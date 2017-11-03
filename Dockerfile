@@ -1,6 +1,6 @@
 FROM centos:6.9
-RUN yum groupinstall 'Development Tools' \
-  && yum install jdk openssl-devel tar gzip
+RUN yum -y groupinstall 'Development Tools' \
+  && yum -y install jdk openssl-devel tar gzip
 ENV APR_VERSION 1.6.3
 ENV TC_NATIVE 1.2.14
 RUN wget http://mirror.linux-ia64.org/apache//apr/apr-$APR_VERSION.tar.gz \
