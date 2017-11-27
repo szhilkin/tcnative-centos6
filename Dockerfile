@@ -8,5 +8,11 @@ RUN wget http://mirror.linux-ia64.org/apache//apr/apr-$APR_VERSION.tar.gz \
   && cd apr-$APR_VERSION \
   && ./configure \
   && make \
+  && make install \
+  && wget http://mirror.linux-ia64.org/apache/tomcat/tomcat-connectors/native/$TC_NATIVE/source/tomcat-native-$TC_NATIVE-src.tar.gz \
+  && tar -zxvf tomcat-native-$TC_NATIVE-src.tar.gz \
+  && cd tomcat-native-$TC_NATIVE-src/native \
+  && ./configure --with-java-home=/usr/lib/jvm/java-8-openjdk-amd64 \
+  && make \
   && make install
 CMD [ "/bin/bash" ]
